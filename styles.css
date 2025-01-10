@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1c043; /* Yellow background */
+  font-family: "Arial", sans-serif;
+  color: #fff;
+}
+
+.banner {
+  position: relative;
+  background: #f1c043; /* Main yellow background */
+  padding: 50px;
+  width: 80%;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-size: 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background: linear-gradient(to right, #c57d2c, #614120, #c57d2c);
+  z-index: -1;
+}
