@@ -4,47 +4,267 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <title>Louis Armstrong</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
     <style>
+      body {
+        scroll-behavior: smooth;
+        font-family: "IBM Plex Sans", serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+
       @font-face {
         font-family: "OPTIAurora";
         src: url("OPTIAurora-BoldCondensed.ttf.woff") format("woff");
       }
       .hero-bg {
         position: relative;
-        background: url("735058_poster.jpg") no-repeat right 10% center;
-        background-size: contain;
+      }
+      header {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 70%,
+            rgba(0, 0, 0, 1)
+          ),
+          url("wallpaperflare.com_wallpaper-1920x1080-upscaled.png") no-repeat
+            center center / cover;
+        background-size: cover;
       }
       .full-width-svg {
         width: 100%;
         height: auto;
       }
+
+      @layer utilities {
+        .navbar-transition {
+          transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+      }
+
+      .link {
+        position: relative;
+        color: white;
+        text-decoration: none;
+      }
+
+      .link:hover {
+        color: white;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(202, 138, 4);
+        transform: scaleX(0);
+        transform-origin: top left;
+        transition: transform 0.3s ease;
+      }
+
+      .link:hover::before {
+        transform: scaleX(1);
+      }
     </style>
   </head>
-  <body class="bg-[#E79F26]">
-    <div class="w-full">
-      <svg
-        class="full-width-svg"
-        viewBox="0 0 1317 112"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+  <body class="bg-black text-neutral-50">
+    <header>
+      <nav
+        id="navbar"
+        class="fixed z-10 top-5 left-3/4 transform -translate-x-1/2 flex items-center gap-20 px-1 p-1 rounded-3xl navbar-transition text-lg border border-transparent"
       >
-        <path
-          d="M0.0559692 -10H1327.96V111.5H935.056L869.056 69H113.856L26.256 8.2L0.0559692 -10Z"
-          fill="#B16A1C"
-        />
-        <path d="M32 0L117 59H872L938 101.5H1318V0H32Z" fill="#001A27" />
-        <path d="M32 0L117 59H872L938 101.5H1318V0H32Z" fill="#001A27" />
-      </svg>
-    </div>
-    <section class="hero-bg">
-      <div
-        class="flex items-center justify-between max-w-screen-xl mx-auto h-[600px]"
-      >
-        <h1 class="text-7xl text-gray-50 font-[OPTIAurora] tracking-tight">
-          Louis Armstrong
+        <a
+          href="#"
+          class="font-bold text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
+          >Biographie</a
+        >
+        <a
+          href="#"
+          class="font-bold text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
+          >Discographie</a
+        >
+        <a
+          href="#"
+          class="font-bold text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
+          >Concerts</a
+        >
+      </nav>
+      <section class="hero-bg z-1">
+        <div
+          class="flex items-center justify-end max-w-screen-2xl mx-auto h-screen"
+        >
+          <div class="flex flex-col items-center gap-8 text-gray-200">
+            <h1 id="title" class="text-8xl tracking-tight font-[OPTIAurora]">
+              Louis Armstrong
+            </h1>
+            <h2 id="subtitle" class="text-4xl">🎺 La légende du Jazz 🎺</h2>
+            <a
+              id="cta"
+              href="#"
+              class="bg-yellow-500 text-black font-bold py-2 px-4 rounded-full hover:bg-yellow-600"
+              >💿 Découvrir sa discographie</a
+            >
+          </div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="max-w-screen-xl mx-auto py-16 text-gray-300">
+        <h1 class="text-3xl font-bold text-gray-100 mb-4">
+          Louis Armstrong : Le père du jazz moderne
         </h1>
-      </div>
-    </section>
+        <div class="flex gap-4">
+          <div class="flex flex-col gap-4 justify-center flex-1">
+            <p><strong>Nom complet :</strong> Louis Daniel Armstrong</p>
+            <p><strong>Surnom :</strong> Satchmo, Pops</p>
+            <p><strong>Date de naissance :</strong> 4 août 1901</p>
+            <p>
+              <strong>Lieu de naissance :</strong> La Nouvelle-Orléans,
+              Louisiane, États-Unis
+            </p>
+            <p><strong>Date de décès :</strong> 6 juillet 1971</p>
+            <p><strong>Lieu de décès :</strong> New York, États-Unis</p>
+          </div>
+          <img
+            class="rounded-2xl w-1/3 object-cover"
+            src="30-Louis-Armstrong.webp"
+            alt="Louis Armstrong"
+          />
+        </div>
+
+        <img src="Untitled.png" class="w-2/3 mx-auto py-16" alt="" />
+        <div class="space-y-6">
+          <section>
+            <h2 class="text-2xl font-semibold text-gray-100 mb-2">
+              Les débuts modestes d’un géant
+            </h2>
+            <p class="leading-relaxed">
+              Louis Armstrong est né dans un quartier défavorisé de La
+              Nouvelle-Orléans, un endroit vibrant de culture et de musique.
+              Élevé par sa grand-mère et sa mère, il a grandi dans une pauvreté
+              extrême. Très jeune, il découvre le cornet et s'intéresse à la
+              musique, notamment après avoir passé du temps dans une maison de
+              correction où il rejoint une fanfare. Cette période a marqué le
+              début de son amour pour la musique et sa détermination à devenir
+              musicien.
+            </p>
+          </section>
+          <section>
+            <h2 class="text-2xl font-semibold text-gray-100 mb-2">
+              Une carrière qui change le monde
+            </h2>
+            <p class="leading-relaxed">
+              Dans les années 1920, Armstrong rejoint l’orchestre de Joe "King"
+              Oliver à Chicago, où il commence à se faire remarquer pour son
+              talent exceptionnel à la trompette et son sens unique de
+              l’improvisation. Avec des groupes légendaires comme les
+              <strong>Hot Five</strong> et les <strong>Hot Seven</strong>, il
+              révolutionne le jazz, transformant un genre collectif en un art
+              axé sur la virtuosité individuelle.
+            </p>
+            <p class="leading-relaxed">
+              Sa voix grave et chaleureuse devient également une marque de
+              fabrique, notamment avec des chansons comme
+              <em>What a Wonderful World</em>, <em>La Vie en rose</em>, et
+              <em>Hello, Dolly!</em>.
+            </p>
+          </section>
+
+          <a
+            href="#"
+            class="flex items-center gap-2 text-yellow-500 font-bold rounded-xl hover:text-yellow-600 link w-fit"
+          >
+            Explorer ses albums
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+          <section>
+            <img
+              class="w-3/4 mx-auto rounded-2xl"
+              src="orchestre.webp"
+              alt="Le King Oliver's Creole Jazz Band"
+            />
+            <p class="text-center pt-4 text-sm">
+              Le King Oliver's Creole Jazz Band, Chicago, 1923
+            </p>
+          </section>
+          <section>
+            <h2 class="text-2xl font-semibold text-gray-100 mb-2">
+              🔗 Liens utiles
+            </h2>
+            <div class="flex gap-4">
+              <a
+                href="https://www.louisarmstronghouse.org/"
+                target="_blank"
+                class="bg-yellow-500 text-black font-bold py-2 px-4 rounded-xl hover:bg-yellow-600"
+                >🌐 Site officiel</a
+              >
+              <a
+                href="https://fr.wikipedia.org/wiki/Louis_Armstrong"
+                target="_blank"
+                class="bg-yellow-500 text-black font-bold py-2 px-4 rounded-xl hover:bg-yellow-600"
+                >📚 Wikipedia</a
+              >
+              <a
+                href="https://shop.louisarmstrongfoundation.org/"
+                target="_blank"
+                class="bg-yellow-500 text-black font-bold py-2 px-4 rounded-xl hover:bg-yellow-600"
+                >🛍️ Boutique officielle</a
+              >
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add(
+            "bg-white/10",
+            "backdrop-blur-md",
+            "border-white/[0.2]"
+          );
+        } else {
+          navbar.classList.remove(
+            "bg-white/10",
+            "backdrop-blur-md",
+            "border-white/[0.2]"
+          );
+        }
+      });
+
+      gsap.from(["#title", "#subtitle", "#cta"], {
+        duration: 2,
+        opacity: 0,
+        y: 50,
+        ease: "power2.out",
+        stagger: 0.3,
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blurry Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom Tailwind Config */
+      @layer utilities {
+        .navbar-transition {
+          transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-[200vh] bg-black text-white font-sans">
+    <nav
+      id="navbar"
+      class="fixed top-5 left-1/2 transform -translate-x-1/2 flex items-center gap-6 px-8 py-2 rounded-full navbar-transition"
+    >
+      <a href="#" class="text-white font-bold hover:text-cyan-400">Home</a>
+      <a href="#" class="text-white font-bold hover:text-cyan-400">About</a>
+      <a href="#" class="text-white font-bold hover:text-cyan-400">Contact</a>
+      <a href="#" class="text-white font-bold hover:text-cyan-400">Login</a>
+    </nav>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add(
+            "bg-white/10", // Semi-transparent white background
+            "backdrop-blur-md", // Apply blur
+            "shadow-lg" // Add subtle shadow
+          );
+        } else {
+          navbar.classList.remove(
+            "bg-white/10",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
