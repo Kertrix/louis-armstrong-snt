@@ -1,33 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap");
+
 body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f1c043; /* Yellow background */
-  font-family: "Arial", sans-serif;
-  color: #fff;
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
-.banner {
+@font-face {
+  font-family: "OPTIAurora";
+  src: url("OPTIAurora-BoldCondensed.ttf.woff") format("woff");
+}
+
+.hero-bg {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1)),
+    url("wallpaperflare.com_wallpaper-1920x1080-upscaled.png") no-repeat center
+      center / cover;
+  background-size: cover;
+}
+
+@layer utilities {
+  .navbar-transition {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  }
+}
+
+.link {
   position: relative;
-  background: #f1c043; /* Main yellow background */
-  padding: 50px;
-  width: 80%;
-  text-align: center;
-  color: #000;
-  font-weight: bold;
-  font-size: 2rem;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  color: white;
+  text-decoration: none;
 }
 
-.banner::before {
+.link:hover {
+  color: white;
+}
+
+a::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 30px;
+  display: block;
   width: 100%;
-  background: linear-gradient(to right, #c57d2c, #614120, #c57d2c);
-  z-index: -1;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(202, 138, 4);
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.link:hover::before {
+  transform: scaleX(1);
 }

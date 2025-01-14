@@ -6,99 +6,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <title>Louis Armstrong</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-
-    <style>
-      body {
-        scroll-behavior: smooth;
-        font-family: "IBM Plex Sans", serif;
-        font-weight: 300;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "OPTIAurora";
-        src: url("OPTIAurora-BoldCondensed.ttf.woff") format("woff");
-      }
-      .hero-bg {
-        position: relative;
-      }
-      header {
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0) 70%,
-            rgba(0, 0, 0, 1)
-          ),
-          url("wallpaperflare.com_wallpaper-1920x1080-upscaled.png") no-repeat
-            center center / cover;
-        background-size: cover;
-      }
-      .full-width-svg {
-        width: 100%;
-        height: auto;
-      }
-
-      @layer utilities {
-        .navbar-transition {
-          transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-        }
-      }
-
-      .link {
-        position: relative;
-        color: white;
-        text-decoration: none;
-      }
-
-      .link:hover {
-        color: white;
-      }
-
-      a::before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 1px;
-        bottom: 0;
-        left: 0;
-        background-color: rgb(202, 138, 4);
-        transform: scaleX(0);
-        transform-origin: top left;
-        transition: transform 0.3s ease;
-      }
-
-      .link:hover::before {
-        transform: scaleX(1);
-      }
-    </style>
   </head>
   <body class="bg-black text-neutral-50">
-    <header>
+    <header class="hero-bg">
       <nav
         id="navbar"
-        class="fixed z-10 top-5 left-3/4 transform -translate-x-1/2 flex items-center gap-20 px-1 p-1 rounded-3xl navbar-transition text-lg border border-transparent"
+        class="fixed z-10 top-5 left-3/4 transform -translate-x-1/2 flex items-center gap-20 px-1 p-1 rounded-3xl navbar-transition text-lg border border-transparent text-nowrap"
       >
         <a
           href="#"
-          class="font-bold text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
+          class="font-bold bg-neutral-700/[0.2] text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
           >Biographie</a
         >
         <a
-          href="#"
+          href="discographie.html"
           class="font-bold text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
           >Discographie</a
         >
         <a
-          href="#"
+          href="titres.html"
           class="font-bold text-neutral-50 hover:text-neutral-300 py-2 px-4 rounded-[20px] border border-transparent hover:border-white/[0.2]"
-          >Concerts</a
+          >Ses meilleurs titres</a
         >
       </nav>
       <section class="hero-bg z-1">
@@ -112,7 +42,7 @@
             <h2 id="subtitle" class="text-4xl">🎺 La légende du Jazz 🎺</h2>
             <a
               id="cta"
-              href="#"
+              href="discographie.html"
               class="bg-yellow-500 text-black font-bold py-2 px-4 rounded-full hover:bg-yellow-600"
               >💿 Découvrir sa discographie</a
             >
@@ -183,7 +113,7 @@
           </section>
 
           <a
-            href="#"
+            href="discographie.html"
             class="flex items-center gap-2 text-yellow-500 font-bold rounded-xl hover:text-yellow-600 link w-fit"
           >
             Explorer ses albums
